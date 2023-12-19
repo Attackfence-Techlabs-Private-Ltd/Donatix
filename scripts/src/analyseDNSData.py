@@ -426,7 +426,7 @@ def fetch_dns_hosts(start_time, end_time):
 
     # Query to retrieve the dga hosts data from dns_query_data
     dga_hosts_query = """
-                    select qname, count(*) as dga_count from dns_query_data
+                    select src, count(*) as dga_count from dns_query_data
                     where isDGA = 1 group by qname order by dga_count desc;
                     """
 
