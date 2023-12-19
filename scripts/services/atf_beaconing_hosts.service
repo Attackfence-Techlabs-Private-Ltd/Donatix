@@ -7,7 +7,7 @@ StartLimitIntervalSec=0
 Type=simple
 Restart=always
 RestartSec=86400
-User=root
+User=attackfence
 WorkingDirectory=/opt/attackfence/NDR/tsharkQueryData/
 ExecStart=/usr/bin/python3 /opt/attackfence/NDR/tsharkQueryData/beaconingHosts.py
 
