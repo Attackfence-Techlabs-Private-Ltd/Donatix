@@ -74,28 +74,27 @@ else
 fi
 
 pip3 install aiohttp
-
+# adding user.
+sudo adduser attackfence
 mkdir -p /opt/attackfence/NDR/tsharkQueryData/ >> ${installerLog} 2>&1
 chown -R attackfence:attackfence /opt/attackfence
-mv $CurrentDir/tsharkPackages/tsharkServices/* /etc/systemd/system/
-mv $CurrentDir/tsharkPackages/pythonScripts/* /opt/attackfence/NDR/tsharkQueryData/
+mv $CurrentDir/scripts/services/* /etc/systemd/system/
+mv $CurrentDir/scripts/src/* /opt/attackfence/NDR/tsharkQueryData/
 cd /etc/systemd/system/
 
 # enable services
 systemctl enable atf_tshark_query.service
 systemctl enable atf_dga_evaluation.service
+systemctl enable atf_ti_verdict.service
 systemctl enable atf_dns_data_insertion.service
 systemctl enable atf_beaconing_hosts.service
-systemctl enable atf_dns_tunneling_hosts.service
-systemctl enable atf_ti_verdict.service
 
 # start services
 systemctl start atf_tshark_query.service
 systemctl start atf_dga_evaluation.service
+systemctl start atf_ti_verdict.service
 systemctl start atf_dns_data_insertion.service
 systemctl start atf_beaconing_hosts.service
-systemctl start atf_dns_tunneling_hosts.service
-systemctl start atf_ti_verdict.service
 
 kill $!; trap 'kill $!' SIGTERM
 retval=$?
@@ -105,5 +104,4 @@ if [ $retval -ne 0 ]; then
 else
     echo -e "\r\e[0KAttackFence>> Sensor Configurations Updation\t[${GREEN}SUCCESS${NOCOLOR}]" | tee -a ${installerLog}
 fi
-
 echo -e "AttackFence>> Attackfence Sensor Installed Successfully" | tee -a ${installerLog}
