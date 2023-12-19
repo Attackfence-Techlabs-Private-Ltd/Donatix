@@ -1,0 +1,15 @@
+[Unit]
+Description=running tshark query to insert the data in sqlite3 db
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=10
+User=attackfence
+WorkingDirectory=/opt/attackfence/NDR/tsharkQueryData/
+ExecStart=/opt/attackfence/NDR/tsharkQueryData/tsharkQuery.sh
+
+[Install]
+WantedBy=multi-user.target
+

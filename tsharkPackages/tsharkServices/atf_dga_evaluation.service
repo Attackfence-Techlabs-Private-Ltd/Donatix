@@ -1,0 +1,14 @@
+[Unit]
+Description=running dga_evaluate binary to evaluate the domain as dga or non-dga
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=10
+User=attackfence
+WorkingDirectory=/opt/attackfence/NDR/tsharkQueryData/
+ExecStart=/opt/attackfence/NDR/tsharkQueryData/dga_evaluate
+
+[Install]
+WantedBy=multi-user.target

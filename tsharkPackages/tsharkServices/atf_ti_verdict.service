@@ -1,0 +1,16 @@
+[Unit]
+Description=ATF TI VERDICT
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=300
+User=attackfence
+WorkingDirectory=/opt/attackfence/NDR/tsharkQueryData/
+ExecStart=/usr/bin/python3 /opt/attackfence/NDR/tsharkQueryData/analyticsTIReq.py
+
+[Install]
+WantedBy=multi-user.target
+
