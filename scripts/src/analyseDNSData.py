@@ -160,7 +160,7 @@ def fetch_and_print_data(start_time, end_time):
     tld_query = """
     SELECT 
         src as 'Source IP Address',
-        substr(qname, -2) as 'TLD',
+        qname,
         count(*) as 'Number of Queries',
         sum(case when dnsResponse is "" then 0 else 1 end) as 'Number of Responses',
         avg(qlen) as 'Average Query Length',
@@ -300,8 +300,11 @@ def fetch_and_print_data(start_time, end_time):
                           """
 
     for row in tld_results:
-        cursor.execute(tld_insert_query, row)
-    
+        tld = row[1].split(".")[-1]
+        cursor.execute(tld_insert_query, (row[0], tld, row[2], row[3],
+            row[4], row[5], row[6], row[7], row[8], row[9], row[10]))
+
+
     for row in conversation_results:
         cursor.execute(conv_summ_insert_query, row)
 
