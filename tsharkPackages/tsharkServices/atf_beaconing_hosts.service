@@ -1,0 +1,15 @@
+[Unit]
+Description=ATF Beaconing Hosts Insertion Service
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=86400
+User=root
+WorkingDirectory=/opt/attackfence/NDR/tsharkQueryData/
+ExecStart=/usr/bin/python3 /opt/attackfence/NDR/tsharkQueryData/beaconingHosts.py
+
+[Install]
+WantedBy=multi-user.target

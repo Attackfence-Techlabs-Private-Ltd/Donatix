@@ -1,0 +1,15 @@
+[Unit]
+Description=ATF DNS Tunneling and DGA Hosts Insertion Service
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=300
+User=root
+WorkingDirectory=/opt/attackfence/NDR/tsharkQueryData/
+ExecStart=/usr/bin/python3 /opt/attackfence/NDR/tsharkQueryData/dnsTunnelingHosts.py
+
+[Install]
+WantedBy=multi-user.target
