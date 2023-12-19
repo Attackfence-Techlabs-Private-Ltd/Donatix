@@ -77,3 +77,7 @@ Command for installing SQLite:
 ```
 sudo apt-get install sqlite3
 ```
+- The tool use your system interface. Open file ``` tsharkQuery.sh ``` and replace 'ens33' with your system interface. After saving run the following command to restart the service.
+```
+sudo systemctl restart atf_tshark_query.service
+```
