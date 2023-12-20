@@ -71,13 +71,14 @@ Command for installing Python:
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt install python3.11 -y
 ```
-
 - SQLite: The tool uses SQLite for data storage. You can install SQLite by following the instructions on the official SQLite website.
 Command for installing SQLite:
 ```
 sudo apt-get install sqlite3
 ```
-- The tool use your system interface. Open file ``` tsharkQuery.sh ``` and replace 'ens33' with your system interface. After saving run the following command to restart the service.
+- Run ``` sudo ./installPackages.sh ```. After cloning the repository. To install necessary file in your system.
+
+- The tool use your system interface. Open file ``` /opt/attackfence/NDR/tsharkQueryData/tsharkQuery.sh ``` and replace 'ens33' with your system interface. After saving, run the following command to restart the service.
 ```
 sudo systemctl restart atf_tshark_query.service
 ```
