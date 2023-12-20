@@ -171,7 +171,7 @@ def fetch_and_print_data(start_time, end_time):
         min(size) as 'Minimum Payload', time
     FROM dns_query_data
     where time >= '{}' and time <= '{}'
-    GROUP BY src, substr(qname, -2);
+    GROUP BY qname;
     """.format(start_time, end_time)
     
     # Query to retrieve dns query type from dns_query_data table 
