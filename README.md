@@ -69,8 +69,7 @@ Before installing DNS Detection and Analytics, ensure you have the following pre
   Download the exe file and run it on your system
 - Wireshark: Although the package only requires Tshark but in Windows operating system you need to download the executable file of Wireshark from the Wireshark official [Wireshark website](https://www.wireshark.org/download.html). The tshark will be installed with it as well.
 - Install Power BI for visualization:
-
-Download and install Power BI Desktop from [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) 
+  - Download and install Power BI Desktop from [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) 
 
 ### Usage
 - Run Donatix.exe to run the project.
