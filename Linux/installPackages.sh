@@ -76,10 +76,10 @@ fi
 pip3 install aiohttp
 # adding user.
 adduser attackfence
-mkdir -p /opt/attackfence/donaticsInstaller/Linux/scripts/src/ >> ${installerLog} 2>&1
+mkdir -p /opt/attackfence/Donatix/Linux/scripts/src/ >> ${installerLog} 2>&1
 chown -R attackfence:attackfence /opt/attackfence
 mv $CurrentDir/scripts/services/* /etc/systemd/system/
-mv $CurrentDir/scripts/src/* /opt/attackfence/donaticsInstaller/Linux/scripts/src/
+mv $CurrentDir/scripts/src/* /opt/attackfence/Donatix/Linux/scripts/src/
 cd /etc/systemd/system/
 
 # enable services

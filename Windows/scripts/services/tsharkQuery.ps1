@@ -1,6 +1,6 @@
 # PowerShell script to capture DNS records using tshark.exe and insert data into SQLite3 DB
 $durationPerBatch = 300  # Set the duration (in seconds) for each capture batch
-$pythonScriptPath = "C:\donaticsInstaller\Windows\scripts\src\noname.py"
+$pythonScriptPath = "C:\Donatix\Windows\scripts\src\noname.py"
 # Loop until the total number of packets is reached
 while ($true) {
     # Capture a batch of packets

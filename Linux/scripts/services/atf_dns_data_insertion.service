@@ -8,8 +8,8 @@ Type=simple
 Restart=always
 RestartSec=300
 User=attackfence
-WorkingDirectory=/opt/attackfence/donaticsInstaller/Linux/scripts/src/
-ExecStart=/usr/bin/python3 /opt/attackfence/donaticsInstaller/Linux/scripts/src/analyseDNSData.py
+WorkingDirectory=/opt/attackfence/Donatix/Linux/scripts/src/
+ExecStart=/usr/bin/python3 /opt/attackfence/Donatix/Linux/scripts/src/analyseDNSData.py
 
 [Install]
 WantedBy=multi-user.target

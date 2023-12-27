@@ -51,7 +51,7 @@ DNS Detection and Analytics is released as an open-source tool to enable users t
 Identify hosts engaging in continuous outbound DNS traffic, a potential sign of beaconing, using a 24-hour timeframe.
 
 - DNS Tunneling Detection: 
-Spot abnormal DNS tunnelling activities, safeguarding against potential security breaches.
+Spot abnormal DNS tunneling activities, safeguarding against potential security breaches.
 
 - DGA Detection: 
 Detect hosts using Domain Generation Algorithms to generate malicious domain names, providing an early warning of potential threats.
@@ -66,14 +66,29 @@ Correlate domain names and IP addresses with AttackFence Threat Intel, enhancing
 Before installing DNS Detection and Analytics, ensure you have the following prerequisites installed:
 
 - Python: DNS Detection and Analytics requires Python. If you don't have Python installed, you can download and install it from the official [Python website](https://www.python.org/downloads/). The version must be lower than or equal to 3.11
-Command for installing Python:
-```
-sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt install python3.11 -y
-```
+  Download the exe file and run it on your system
+- Wireshark: Although the package only requires Tshark but in Windows operating system you need to download the executable file of Wireshark from the Wireshark official [Wireshark website](https://www.wireshark.org/download.html). The tshark will be installed with it as well.
+- Install Power BI for visualization:
+  - Download and install Power BI Desktop from [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) 
 
-- SQLite: The tool uses SQLite for data storage. You can install SQLite by following the instructions on the official SQLite website.
-Command for installing SQLite:
-```
-sudo apt-get install sqlite3
-```
+### Usage
+- Run Donatix.exe to run the project.
+- Power BI Setup:
+  - Install Power BI Desktop on the New Machine:
+    - In the new Power BI Desktop > Right click,  
+    - Run as administrator.
+    - go to File > Open and select the donatix.pbit file at location ‘C:\Donatix\Windows\scripts\src\donatix.pbit’.
+    - It will start showing data.
+  
+  - Update Data Source Credentials (if applicable):
+  If you used username/password or other credentials to connect to the SQLite database, you might need to update them for the new machine.
+  Change the source path: Go to File > Options and settings > Data source settings  .
+  
+  - Refresh Data:
+  Right-click on the dataset and select Refresh to ensure the connection and data are up-to-date.
+  
+  - Additional Considerations:
+    - Gateway Configuration: If you used a gateway for data access, configure it appropriately on the new machine.
+    - Visual Customizations: Any custom visuals you used need to be installed on the new machine as well.
+    - Shared Data Sources: If the original data source is shared, ensure the new machine has access to it.
+    - Version Compatibility: Use compatible Power BI versions on both machines to avoid issues.

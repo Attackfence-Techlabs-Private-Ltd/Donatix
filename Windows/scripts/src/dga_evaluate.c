@@ -73,7 +73,7 @@ int main(int argc, char **argv) {
     ndpi_set_protocol_detection_bitmask2(ndpi_str, &all);
     ndpi_finalize_initialization(ndpi_str);
     sqlite3 *db;
-    int rc = sqlite3_open("C:\\donaticsInstaller\\Windows\\scripts\\src\\networkdata.db", &db);
+    int rc = sqlite3_open("C:\\Donatix\\Windows\\scripts\\src\\networkdata.db", &db);
 
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Cannot open database: %s\n", sqlite3_errmsg(db));
