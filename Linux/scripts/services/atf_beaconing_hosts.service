@@ -8,8 +8,8 @@ Type=simple
 Restart=always
 RestartSec=86400
 User=attackfence
-WorkingDirectory=/opt/attackfence/NDR/tsharkQueryData/
-ExecStart=/usr/bin/python3 /opt/attackfence/NDR/tsharkQueryData/beaconingHosts.py
+WorkingDirectory=/opt/attackfence/Donatix/Linux/scripts/src/
+ExecStart=/usr/bin/python3 /opt/attackfence/Donatix/Linux/scripts/src/beaconingHosts.py
 
 [Install]
 WantedBy=multi-user.target
