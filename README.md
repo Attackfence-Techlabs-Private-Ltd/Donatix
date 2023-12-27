@@ -61,7 +61,7 @@ Correlate domain names and IP addresses with AttackFence Threat Intel, enhancing
 
 -----
 
-### Installation & Prerequisites
+## Installation & Prerequisites
 
 Before installing DNS Detection and Analytics, ensure you have the following prerequisites installed:
 
@@ -71,24 +71,36 @@ Before installing DNS Detection and Analytics, ensure you have the following pre
 - Install Power BI for visualization:
   - Download and install Power BI Desktop from [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) 
 
-### Usage
-- Run Donatix.exe to run the project.
-- Power BI Setup:
-  - Install Power BI Desktop on the New Machine:
-    - In the new Power BI Desktop > Right click,  
-    - Run as administrator.
-    - go to File > Open and select the donatix.pbit file at location ‘C:\Donatix\Windows\scripts\src\donatix.pbit’.
-    - It will start showing data.
-  
-  - Update Data Source Credentials (if applicable):
-  If you used username/password or other credentials to connect to the SQLite database, you might need to update them for the new machine.
-  Change the source path: Go to File > Options and settings > Data source settings  .
-  
-  - Refresh Data:
-  Right-click on the dataset and select Refresh to ensure the connection and data are up-to-date.
-  
-  - Additional Considerations:
-    - Gateway Configuration: If you used a gateway for data access, configure it appropriately on the new machine.
-    - Visual Customizations: Any custom visuals you used need to be installed on the new machine as well.
-    - Shared Data Sources: If the original data source is shared, ensure the new machine has access to it.
-    - Version Compatibility: Use compatible Power BI versions on both machines to avoid issues.
+## Usage
+### For Windows.
+  - Run Donatix.exe to run the project from Windows Directory.
+  - Power BI Setup:
+    - Install Power BI Desktop on the New Machine:
+      - In the new Power BI Desktop > Right click,  
+      - Run as administrator.
+      - go to File > Open and select the donatix.pbit file at location ‘C:\Donatix\Windows\scripts\src\donatix.pbit’.
+      - It will start showing data.
+    
+    - Update Data Source Credentials (if applicable):
+    If you used username/password or other credentials to connect to the SQLite database, you might need to update them for the new machine.
+    Change the source path: Go to File > Options and settings > Data source settings  .
+    
+    - Refresh Data:
+    Right-click on the dataset and select Refresh to ensure the connection and data are up-to-date.
+    
+    - Additional Considerations:
+      - Gateway Configuration: If you used a gateway for data access, configure it appropriately on the new machine.
+      - Visual Customizations: Any custom visuals you used need to be installed on the new machine as well.
+      - Shared Data Sources: If the original data source is shared, ensure the new machine has access to it.
+      - Version Compatibility: Use compatible Power BI versions on both machines to avoid issues.
+
+    - Open task schedular application and go into the task schedular library and Run the following tasks with highest privileges.
+      -   DNSDataAnalytics.
+      -   TiAnalytics.
+      -   findBeaconingHosts.
+      -   DGAEvaluation.
+      -   findDnsTunnelingHosts.
+      -   TsharkQuery
+      
+### For Linux.
+  - Run ``` sudo ./installPackages.sh ``` from Linux Directory.
