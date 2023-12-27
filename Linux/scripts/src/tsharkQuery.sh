@@ -15,7 +15,7 @@ while [ $total_packets -gt 0 ]; do
     # Alternatively, you can capture for a specific duration
     # tshark query to capture the dns records based on the duration 
     # and then the python script will insert the data in sqlite3 db
-    unbuffer tshark -i ens33 -a duration:$duration_per_batch -f "(udp src port 53) or (udp src port 5353) or (udp dst port 53) or (udp dst port 5353)" -n -T fields -e frame.interface_name -e _ws.col.Time -e ip.dst -e udp.dstport -e ip.src -e udp.srcport -e dns.flags.rcode -e dns.qry.name -e dns.qry.name.len -e dns.count.labels -e dns.qry.type -e dns.resp.name -e dns.resp.type -e dns.resp.ttl -e dns.resp.len -e dns.rr.udp_payload_size -e dns.a -e dns.aaaa -e dns.txt -e dns.ptr.domain_name -E header=y -E separator="," -E occurrence=f -E aggregator="|" -t ad | ./noname.py
+    unbuffer tshark -i wlp0s20f3 -a duration:$duration_per_batch -f "(udp src port 53) or (udp src port 5353) or (udp dst port 53) or (udp dst port 5353)" -n -T fields -e frame.interface_name -e _ws.col.Time -e ip.dst -e udp.dstport -e ip.src -e udp.srcport -e dns.flags.rcode -e dns.qry.name -e dns.qry.name.len -e dns.count.labels -e dns.qry.type -e dns.resp.name -e dns.resp.type -e dns.resp.ttl -e dns.resp.len -e dns.rr.udp_payload_size -e dns.a -e dns.aaaa -e dns.txt -e dns.ptr.domain_name -E header=y -E separator="," -E occurrence=f -E aggregator="|" -t ad | ./noname.py
 
     # Decrement the total number of packets
     total_packets=$((total_packets - batch_size))

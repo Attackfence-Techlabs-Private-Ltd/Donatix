@@ -75,11 +75,11 @@ fi
 
 pip3 install aiohttp
 # adding user.
-sudo adduser attackfence
-mkdir -p /opt/attackfence/NDR/tsharkQueryData/ >> ${installerLog} 2>&1
+adduser attackfence
+mkdir -p /opt/attackfence/donaticsInstaller/Linux/scripts/src/ >> ${installerLog} 2>&1
 chown -R attackfence:attackfence /opt/attackfence
 mv $CurrentDir/scripts/services/* /etc/systemd/system/
-mv $CurrentDir/scripts/src/* /opt/attackfence/NDR/tsharkQueryData/
+mv $CurrentDir/scripts/src/* /opt/attackfence/donaticsInstaller/Linux/scripts/src/
 cd /etc/systemd/system/
 
 # enable services
