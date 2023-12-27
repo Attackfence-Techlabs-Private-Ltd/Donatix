@@ -28,83 +28,52 @@ DNS Detection and Analytics is released as an open-source tool to enable users t
 - [License](#license)
 - [Contact](#contact)
 
-Analytics Features
-Conversation Summary
-Understand communication patterns between hosts, helping you identify normal and potentially suspicious interactions.
+### Analytics Features
+- Conversation Summary: Understand communication patterns between hosts, helping you identify normal and potentially suspicious interactions.
 
-Query/Response Summary
-Gain insights into the overall DNS traffic flow, enabling you to assess the health and efficiency of your network.
+- Query/Response Summary: Gain insights into the overall DNS traffic flow, enabling you to assess the health and efficiency of your network.
 
-Query Type Breakup
-Analyze the types of queries to better understand the nature of DNS requests and potential areas of interest.
+- Query Type Breakup: Analyze the types of queries to better understand the nature of DNS requests and potential areas of interest.
 
-Response Code Breakup
-Identify and troubleshoot issues by examining response codes, ensuring a smooth DNS resolution process.
+- Response Code Breakup: Identify and troubleshoot issues by examining response codes, ensuring a smooth DNS resolution process.
 
-Query Name Length
-Detect anomalies or potential security threats by analyzing variations in query name lengths.
+- Query Name Length: Detect anomalies or potential security threats by analyzing variations in query name lengths.
 
-Label Count Length
-Understand label count distributions, aiding in the identification of irregularities in DNS query structures.
+- Label Count Length: Understand label count distributions, aiding in the identification of irregularities in DNS query structures.
 
-TTL Value
-Optimize DNS performance and reliability by analyzing Time-to-Live (TTL) values.
+- TTL Value: Optimize DNS performance and reliability by analyzing Time-to-Live (TTL) values.
+- Conversation Summary by TLD: Profile DNS conversations by top-level domain, providing insights into the origin and nature of traffic.
 
-Conversation Summary by TLD
-Profile DNS conversations by top-level domain, providing insights into the origin and nature of traffic.
+- DGA Summary: Detect potential threats by identifying hosts exhibiting behaviour indicative of Domain Generation Algorithms (DGA).
 
-DGA Summary
-Detect potential threats by identifying hosts exhibiting behaviour indicative of Domain Generation Algorithms (DGA).
-
-Detection Features
-Beaconing Detection
+### Detection Features
+- Beaconing Detection: 
 Identify hosts engaging in continuous outbound DNS traffic, a potential sign of beaconing, using a 24-hour timeframe.
 
-DNS Tunneling Detection
+- DNS Tunneling Detection: 
 Spot abnormal DNS tunnelling activities, safeguarding against potential security breaches.
 
-DGA Detection
+- DGA Detection: 
 Detect hosts using Domain Generation Algorithms to generate malicious domain names, providing an early warning of potential threats.
 
-IOC Correlation
+- IOC Correlation: 
 Correlate domain names and IP addresses with AttackFence Threat Intel, enhancing your ability to identify and mitigate threats effectively.
 
+-----
 
-Installation
-Prerequisites
-
-====================================LINUX INSTALLATION=========================================
+### Installation & Prerequisites
 
 Before installing DNS Detection and Analytics, ensure you have the following prerequisites installed:
 
-Python: DNS Detection and Analytics requires Python. If you don't have Python installed, you can download and install it from the official [Python website](https://www.python.org/downloads/). The version must be lower than or equal to 3.11
-Command for installing Python: 
+- Python: DNS Detection and Analytics requires Python. If you don't have Python installed, you can download and install it from the official [Python website](https://www.python.org/downloads/). The version must be lower than or equal to 3.11
+Command for installing Python:
+```
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt install python3.11 -y
+```
 
-SQLite: The tool uses SQLite for data storage. You can install SQLite by following the instructions on the official SQLite website.
+- SQLite: The tool uses SQLite for data storage. You can install SQLite by following the instructions on the official SQLite website.
 Command for installing SQLite:
+```
 sudo apt-get install sqlite3
-
-Tshark: This tool is used in capturing the dns and mulicast dns data. If it is not already installed in your system then run:
-sudo apt-get install tshark
-Dependencies (with user permission):
-For Readme for Tshark and Port Forwarding Setup on Linux
-Readme for Tshark and Port Forwarding Setup on Linux
-
-Note: Ensure that you have the necessary permissions to install these tools, or contact your system administrator for assistance.
-
-====================================WINDOWS INSTALLATION=========================================
-Before installing DNS Detection and Analytics, ensure you have the following prerequisites installed:
-
-Python: DNS Detection and Analytics requires Python. If you don't have Python installed, you can download and install it from the official [Python website](https://www.python.org/downloads/). The version must be lower than or equal to 3.11
-Download the exe file and run it on your system
-
-Wireshark: Although the package only requires Tshark but in Windows operating system you need to download the executable file of Wireshark from the Wireshark official [Wireshark ebsite](https://www.wireshark.org/download.html). The tshark will be installed with it as well.
-
-Run DNSFreeware.exe to run the project.
-
-## Contact
-For any inquiries, please contact support@attackfence.com
-
-
+```
