@@ -73,6 +73,7 @@ Before installing DNS Detection and Analytics, ensure you have the following pre
 
 ## Usage
 ### For Windows.
+  - Run the powershell as administrator and run this command ```Set-ExecutionPolicy -RemoteSigned``` .
   - Run Donatix.exe to run the project from Windows Directory.
   - Power BI Setup:
     - Install Power BI Desktop on the New Machine:
