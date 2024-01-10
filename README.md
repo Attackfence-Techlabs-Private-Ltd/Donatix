@@ -23,6 +23,7 @@ DNS Detection and Analytics is released as an open-source tool to enable users t
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Power-BI Details](#)
 - [Configuration](#configuration)
 - [Contributing](#contributing)
 - [License](#license)
@@ -69,7 +70,7 @@ Before installing DNS Detection and Analytics, ensure you have the following pre
   Download the exe file and run it on your system
 - Wireshark: Although the package only requires Tshark but in Windows operating system you need to download the executable file of Wireshark from the Wireshark official [Wireshark website](https://www.wireshark.org/download.html). The tshark will be installed with it as well.
 - Install Power BI for visualization:
-  - Download and install Power BI Desktop from [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) 
+  - Download and install Power BI Desktop from [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/)
 
 ## Usage
 ### For Windows.
@@ -105,3 +106,32 @@ Before installing DNS Detection and Analytics, ensure you have the following pre
       
 ### For Linux.
   - Run ``` sudo ./installPackages.sh ``` from Linux Directory.
+
+## Power-BI Details
+### Slide 1:
+  - Top Domains by Query Volume
+      - Purpose: Identify most frequently queried domains.
+      - Data Source: dns_query_data
+      - Fields: Values = Count of qname, Category = qname
+  - Response Code Distribution
+      - Purpose: Understand response code occurrences (e.g., successful, failed).
+      - Data Source: responseCodeBreakUp
+      - Fields: Values = Count of rcodeZero, rcodeOne, etc., Category = rcodeZero, rcodeOne, etc.
+  - Top DNS Servers
+      - Purpose: Identify most used DNS servers.
+      - Data Source: dns_query_data
+      - Fields: Values = Count of dst, Category = dst.
+  - Query Type Distribution
+      - Purpose: Understand query type usage (e.g., A, AAAA, TXT).
+      - Data Source: queryTypeBreakUp.
+      - Fields: Values = Count of Arecord, AAAArecord, etc., Category = Arecord, AAAArecord, etc.
+  - Average TLD Conversation Length
+      - Purpose: Analyze query lengths for different TLDs
+      - Data Source: tldConversationSummary.
+      - Fields: Axis = tld, Values = averageQueryLength.
+  - Total DNS Queries
+      - Purpose: Monitor overall DNS activity and potential load.
+      - Data Source: queryResponseSummary table
+      - Fields: Value: totalQueryCount
+      - Example Appearance: Large number with label "Total DNS Queries: 123,456"
+
