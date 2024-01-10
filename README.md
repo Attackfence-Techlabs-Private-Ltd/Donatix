@@ -109,29 +109,140 @@ Before installing DNS Detection and Analytics, ensure you have the following pre
 
 ## Power-BI Details
 ### Slide 1:
-  - Top Domains by Query Volume
+  - Count of Threat Intel Verdict:
+    - Purpose: Count of Threat Intel Verdict like benign, unknown, suspicious, malicious, etc.
+    - Data Source:dns_query_data.
+    - Fields:
+      - Values = Count of tiVerdict ,
+      - Category = tiVerdict.
+  - Unknown Communication By Host:
+    - Purpose: Count of Unknown Communication by Host.
+    - Data Source:dns_query_data .
+    - Fields: 
+      - Values = Count of Unknown tiVerdict, 
+      - Category = src.
+  - Suspicious Communication By Host:
+    - Purpose: Count of Suspicious Communication by Host.
+    - Data Source:dns_query_data .
+    - Fields: 
+      - Values = Count of Unknown tiVerdict, 
+      - Category = src.
+
+### Slide 2:
+  - Sum Of Label Length By Date:
+    - Purpose: Sum of averageLabelLen, Sum of maximumLabelLen, and Sum of minimumLabelLen by Date.
+    - Data Source: labelCountLength.
+    - Fields: 
+      - Values = averageLavelLen, maximumLabelLength, minimumLabelLengt,  
+      - Category = Date.
+  - Number Of Queries and Responses By Date:
+    - Purpose: Total number of queries and Responses by date.
+    - Data Source:queryResponseSummary.
+    - Fields: 
+      - Values = Sum of numQueries and numResponses, etc., 
+      - Category = numQueries, numResponses.
+  - Sum Of Query length By Date:
+    - Purpose: Sum of averageQueryLen, Sum of maximumQueryLen, and Sum of minimumQueryLen by Date.
+    - Data Source:queryNameLength .
+    - Fields: 
+      - Values = Sum of averageQueryLen, Sum of maximumQueryLen, and Sum of minimumQueryLen, 
+      - Category = Date.
+  - Sum Of DNS Record By Date:
+    - Purpose: Sum of query type (e.g., A, AAAA, TXT) by Date.
+    - Data Source: queryTypeBreakUp.
+    - Fields: 
+      - Values = Sum of Arecord, AAAArecord, OtherRecord., 
+      - Category = Date.
+  - Count Of Response Codes by Date:
+    - Purpose: Count Of Response Code like (0,1,2,3 etc) By Date.
+    - Data Source: responseCodeBreakUp.
+    - Fields:  
+      - Values =Count of noResponse, rcodeOne, rcodeThree, rcodeTwo, rcodeZero.
+      - Category = Date.
+
+### Slide 3:
+  - Sum Of Queries and Responses By Source:
+    - Purpose: Total number of queries and Responses by Source.
+    - Data Source: tldConversationSummary.
+    - Fields: 
+      - Values = Sum of numQueries and numResponses, etc., 
+      - Category = srcIp.
+  - Count of Top Label Domains ( tld):
+    - Purpose: Count of Top Label Domains ( tld).
+    - Data Source: tldConversationSummary.
+    - Fields: 
+      - Values =Count of tld, 
+      - Category = tld.
+
+### Slide 4:
+  - Top Domains By Query Volume
       - Purpose: Identify most frequently queried domains.
       - Data Source: dns_query_data
-      - Fields: Values = Count of qname, Category = qname
+      - Fields:
+        - Values = Count of qname,
+        - Category = qname
   - Response Code Distribution
       - Purpose: Understand response code occurrences (e.g., successful, failed).
       - Data Source: responseCodeBreakUp
-      - Fields: Values = Count of rcodeZero, rcodeOne, etc., Category = rcodeZero, rcodeOne, etc.
+      - Fields:
+        - Values = Count of rcodeZero, rcodeOne, etc.,
+        - Category = rcodeZero, rcodeOne, etc.
   - Top DNS Servers
       - Purpose: Identify most used DNS servers.
       - Data Source: dns_query_data
-      - Fields: Values = Count of dst, Category = dst.
+      - Fields:
+        - Values = Count of dst,
+        - Category = dst.
   - Query Type Distribution
       - Purpose: Understand query type usage (e.g., A, AAAA, TXT).
       - Data Source: queryTypeBreakUp.
-      - Fields: Values = Count of Arecord, AAAArecord, etc., Category = Arecord, AAAArecord, etc.
+      - Fields:
+        - Values = Count of Arecord, AAAArecord, etc.,
+        - Category = Arecord, AAAArecord, etc.
   - Average TLD Conversation Length
       - Purpose: Analyze query lengths for different TLDs
       - Data Source: tldConversationSummary.
-      - Fields: Axis = tld, Values = averageQueryLength.
+      - Fields:
+        - Axis = tld,
+        - Values = averageQueryLength.
   - Total DNS Queries
       - Purpose: Monitor overall DNS activity and potential load.
       - Data Source: queryResponseSummary table
-      - Fields: Value: totalQueryCount
-      - Example Appearance: Large number with label "Total DNS Queries: 123,456"
+      - Fields:
+        - Value: totalQueryCount
+      - Example Appearance: Large number with label "Total DNS Queries: 123,456".
+        
+### Slide 5:
+  - Average DGA Score By Source
+    - Purpose: Analyze DGA scores by sources.
+    - Data Source: dgaSummary.
+    - Fields:
+      - Values = Average of isDGA ,
+      - Category = src.
+  - Average DGA Score by Source And Date
+    - Purpose: Analyze DGA scores by sources and date.
+    - Data Source: dgaSummary.
+    - Fields:
+      - Values = Average of isDGA,
+      - Category = src, date.
+  - Top 10 Source with Max DGA Scores.
+    - Purpose: Monitor overall Source with their DGA Scores.
+    - Data Source: dgaSummary table
+    - Fields:
+      - Value = Max of isDGA,
+      - Category = src.
+        
+### Slide 6:
+  - DNS Activity By User:
+    - Purpose: Visualize DNS query and response patterns for individual users to identify unusual behavior or potential threats.
+    - Data Source: dns_query_data table
+    - Fields:
+      - X-axis: Time (e.g., day, Month, Year),
+      - Y-axis: Query/response count.
+
+  - No Of Domains Visited By User:
+    - Purpose: Reveals the most frequented domains by individual users for insights into browsing habits and potential risks.
+    - Data Source: dns_query_data table
+    - Fields:
+      - Values: Query count for each domain
 
