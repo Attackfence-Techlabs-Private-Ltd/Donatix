@@ -116,6 +116,8 @@ fi
 chmod +x /opt/attackfence/Donatix/Linux/scripts/src/{tsharkQuery.sh,noname.py,dga_evaluate}
 # the services run as attackfence and must be able to write the database
 chown -R attackfence:attackfence /opt/attackfence
+# holds the threat-intel licence key
+chmod 600 /opt/attackfence/Donatix/Linux/scripts/src/ti_config.json
 cd /etc/systemd/system/
 
 # pick up unit files that changed since the last install

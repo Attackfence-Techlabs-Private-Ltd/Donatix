@@ -70,6 +70,7 @@ The installers check for the following prerequisites and install whatever is mis
   Download the exe file and run it on your system
 - Wireshark: Although the package only requires Tshark but in Windows operating system you need to download the executable file of Wireshark from the Wireshark official [Wireshark website](https://www.wireshark.org/download.html). The tshark will be installed with it as well.
 - Python packages: aiohttp and matplotlib (matplotlib generates the PDF report).
+- Threat-intel access: copy `scripts/src/ti_config.example.json` to `scripts/src/ti_config.json` (in the Windows and/or Linux directory) and fill in the TI server address and licence key before installing or building Donatix.exe. `ti_config.json` is ignored by git; never commit it or publish a Donatix.exe built with it.
 
 ## Usage
 ### For Windows.
@@ -96,6 +97,14 @@ Both remove the scheduled tasks / services and the installed scripts, and ask be
 ## PDF Report
 The analytics and detections are published as a PDF, generated on demand from the captured data.
 
+The easiest way is to stop Donatix with the report shortcut: it stops the capture and saves the report covering all captured data to your Downloads folder.
+
+  - Windows: use the "Stop Donatix and get report" shortcut on the desktop or in the Start menu, or run StopDonatix.bat from the Windows directory. It asks for administrator rights and opens the report when it is ready.
+  - Linux: run ```sudo bash stopDonatix.sh``` from the Linux directory. The report goes to ~/Downloads of the user who ran sudo, and the script prints the ```scp``` command that copies it to your own computer. Works on a headless server (e.g. Ubuntu Server minimal); no desktop is needed.
+  - To start capturing again, use the "Start Donatix" Start menu shortcut or run StartDonatix.bat (Windows), or run ```sudo bash startDonatix.sh``` (Linux). Nothing is reinstalled and the captured data is kept.
+
+To create a report without stopping Donatix:
+
   - Windows: run ```python generateReport.py``` from the Windows\scripts\src directory.
   - Linux: run ```sudo -u attackfence python3 /opt/attackfence/Donatix/Linux/scripts/src/generateReport.py -o /tmp/Donatix_Report.pdf```
 
@@ -103,10 +112,14 @@ Options:
   - ```-o report.pdf``` : where to write the report (default: Donatix_Report_<date>.pdf in the current directory).
   - ```--days N``` : only report on the last N days (default: all captured data).
 
+Every chart carries a plain-language "What it shows" note and a "Takeaway" tagged ALERT, REVIEW, NORMAL or LIKELY FALSE ALARM. The takeaways, overall assessment and recommended actions are derived from the data by rules in generateReport.py.
+
 Report contents:
-  - Page 1, Overview: number of DNS queries, responses, hosts, domains queried, DGA domains and malicious/suspicious indicators, and queries/responses over time.
-  - Page 2, Traffic Breakdown: query types (A, AAAA, PTR, ...), response codes, top level domains and DNS servers by queries.
-  - Page 3, Hosts and Domains: top domains, queries by host, distinct domains visited by host, and query name length, label count and TTL statistics.
-  - Page 4, Threat Intelligence and DGA Detection: threat intel verdicts, flagged indicators, DGA queries by host and DGA domains.
-  - Page 5, Beaconing and DNS Tunneling Detection: beaconing hosts and DNS tunneling domains.
+  - Page 1, Executive Summary: overall risk assessment, the three attack patterns (DNS tunneling, DGA, beaconing) with their evidence, probable false alarms and blind spots.
+  - Page 2, Overview: number of DNS queries, responses, hosts, domains queried, DGA domains and malicious/suspicious indicators, queries/responses over time (split into capture sessions) and takeaways for management.
+  - Page 3, Traffic Breakdown: query types (A, AAAA, PTR, ...), response codes, top level domains and DNS servers by queries.
+  - Page 4, Hosts and Domains: top domains, queries by host, distinct domains visited by host, and query name length, label count and TTL statistics.
+  - Page 5, Threat Intelligence and DGA Detection: threat intel verdicts, flagged indicators, DGA queries by host and DGA domains.
+  - Page 6, Beaconing and DNS Tunneling Detection: beaconing hosts, DNS tunneling domains and data quality notes.
+  - Page 7, Recommended Next Steps and Glossary: prioritised actions and plain-language definitions.
 

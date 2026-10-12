@@ -11,8 +11,12 @@ script_path = os.path.dirname(os.path.abspath(__file__))
 db = "networkdata.db"
 DB_FILE_DIR = os.path.join(script_path, db)
 ALERT_VERDICT_LIST = ['is_suspicious', 'is_malicious', 'malicious','suspicious']
-TI_LIC_KEY = "572593-894392-850925-172665-717646-449055" 
-TI_API = "https://172.16.2.197/new_feeds/?value={}&key={}"
+# The feed address and licence key are kept out of source control, in ti_config.json
+# beside this script: {"host": "...", "key": "..."} (see ti_config.example.json)
+with open(os.path.join(script_path, "ti_config.json")) as f:
+    TI_CONFIG = json.load(f)
+TI_LIC_KEY = TI_CONFIG["key"]
+TI_API = "https://" + TI_CONFIG["host"] + "/new_feeds/?value={}&key={}"
 # The feed answers a lookup it accepted but has no verdict for with {"status": N}
 # and no "ret" key. Such an indicator is retried this many times, then dropped, so
 # dns_query_data_req cannot grow without bound while the feed returns no verdicts.

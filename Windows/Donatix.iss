@@ -17,13 +17,24 @@ SolidCompression=yes
 
 [Files]
 Source: "install.bat"; DestDir: "{app}\Windows"; Flags: ignoreversion
+Source: "StopDonatix.bat"; DestDir: "{app}\Windows"; Flags: ignoreversion
+Source: "StartDonatix.bat"; DestDir: "{app}\Windows"; Flags: ignoreversion
 Source: "dga_evaluate.exe"; DestDir: "{app}\Windows"; Flags: ignoreversion
 ; The MSYS2 runtime libraries dga_evaluate.exe was built against, it does not start without them
 Source: "*.dll"; DestDir: "{app}\Windows"; Flags: ignoreversion
 Source: "scripts\services\*"; DestDir: "{app}\Windows\scripts\services"; Flags: ignoreversion
 Source: "scripts\src\*.py"; DestDir: "{app}\Windows\scripts\src"; Flags: ignoreversion
+; Threat-intel address and licence key; not in git, so the built Donatix.exe must not be published
+Source: "scripts\src\ti_config.json"; DestDir: "{app}\Windows\scripts\src"; Flags: ignoreversion
 Source: "scripts\src\brand\*"; DestDir: "{app}\Windows\scripts\src\brand"; Flags: ignoreversion
 Source: "..\README.md"; DestDir: "{app}"; Flags: ignoreversion
+
+[Icons]
+; Stops the capture and drops the PDF report into the user's Downloads folder
+Name: "{autoprograms}\Stop Donatix and get report"; Filename: "{app}\Windows\StopDonatix.bat"
+Name: "{autodesktop}\Stop Donatix and get report"; Filename: "{app}\Windows\StopDonatix.bat"
+; Starts the capture again after it was stopped
+Name: "{autoprograms}\Start Donatix"; Filename: "{app}\Windows\StartDonatix.bat"
 
 [Run]
 ; Installs the missing prerequisites (Python, Wireshark, aiohttp, matplotlib) and creates the scheduled tasks
